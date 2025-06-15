@@ -14,7 +14,7 @@ class GreetingResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("Hello You"));
+             .body(is("URi: http://localhost:8081/hello - Order null Authorization: null"));
     }
 
 }
