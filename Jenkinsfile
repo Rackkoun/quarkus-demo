@@ -33,7 +33,7 @@ pipeline {
                 echo 'Deploying to stagging...'
                 }
             }
-        }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
@@ -41,3 +41,4 @@ pipeline {
         }
     }
 }
+
