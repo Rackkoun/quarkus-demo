@@ -31,13 +31,28 @@ pipeline {
         stage('Stagging') {
             steps {
                 echo 'Deploying to stagging...'
+            }
+        }
+        stage('Confirm Deploy to Production') {
+            steps {
+                timeout(time: 60, unit: 'SECONDS'){
+                    input(message: 'Okay to Deploy?', ok: 'Let\'s Do it!')
                 }
             }
-        
-        stage('Deploy') {
+        }
+        stage('Deploy to Production') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying to production...'
             }
+        }
+    }
+
+    post{
+        success{
+            echo "Build succeeded"
+        }
+        failure{
+            echo "Build failed"
         }
     }
 }
